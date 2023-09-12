@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora IMC</title>
+    <link rel="stylesheet" href="main.css" type="text/css">
+</head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <a class="navbar-item" href="#">Home</a>
+            <a class="navbar-item" href="#beneficios">Lorem</a>
+            <a class="navbar-item" href="#outros-beneficios">Ipsum</a>
+            <a class="navbar-item" href="#calculo">Calcular</a>
+        </nav>
+        <div id="hero-section">
+            <h1>Calculadora de IMC</h1>
+            <p id="hero-section-text">
+                Quisque consectetur pretium mattis. Aliquam ut leo ut dui venenatis sagittis. Sed quis tortor sit amet sapien rhoncus volutpat sit amet quis urna. 
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <section id="beneficios">
+
+            <h2>Lorem</h2>
+
+            <div class="paragraph-img">
+                <p id="beneficios-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id commodo justo. Sed vestibulum venenatis mauris quis molestie. Vestibulum sit amet tempor lorem. Duis dapibus neque quis placerat gravida. Morbi at augue eget dui tempus interdum id id nunc. Vivamus tempus velit eu libero molestie lobortis. Nulla lacinia id ex quis suscipit. 
+                    <br><br>
+                    Proin hendrerit tellus vel quam euismod, vel dictum libero condimentum. Vestibulum malesuada rhoncus nunc, at aliquet justo scelerisque ac. Sed ut turpis sit amet felis fermentum sollicitudin. Duis id velit sit amet tortor lobortis ultricies sit amet sit amet lorem. Praesent suscipit ultrices nisi. Nam iaculis neque ac magna fringilla, finibus hendrerit augue tempor. Sed sollicitudin nisi turpis, non aliquet ipsum gravida ut. Suspendisse potenti.
+                </p>
+                <img id="beneficios-img" src="img/img1.png" alt="imagem1" width="400" height="300">
+            </div>
+        </section>
+        
+        <section id="outros-beneficios">
+
+            <h2>Ipsum dolor</h2>
+
+            <div class="paragraph-img">
+                <img id="outros-beneficios-img" src="img/img2.png" alt="imagem1" width="400" height="300">
+            <p id="outros-beneficios-text">
+                Integer cursus posuere ante, vel finibus sapien iaculis vestibulum. Phasellus feugiat fermentum mattis. Cras maximus, ante suscipit tempor fermentum, erat enim eleifend lacus, nec lacinia metus dui non nunc. 
+                <br><br>
+                Suspendisse potenti. Phasellus eget massa lacinia est mollis convallis. Phasellus hendrerit dolor ut sapien eleifend, eget facilisis purus porttitor. Phasellus finibus sapien ac nulla rhoncus, id dapibus ipsum euismod. 
+                <br><br>
+                Ut malesuada sodales augue, et iaculis mi dapibus id. Donec in sapien hendrerit, vulputate massa id, venenatis ex. Curabitur sed sem vel augue ultrices ornare.
+            </p>
+            </div>
+        </section>
+
+        <!-- COLOCAR TABELA -->
+
+        <section id="calculo">
+            <h2>Cálculo</h2>
+            <div id="calc-section">
+                <div id="input-form">
+                    <p>
+                        <label for="peso">Peso (kg): </label>
+                        <input class="text-field" type="number" id="peso" name="peso">
+                    </p>
+                    <p>
+                        <label for="altura">Altura (m): </label>
+                        <input class="text-field" type="number" id="altura" name="altura">
+                    </p>
+                    <p>
+                        <button onclick="Calcular()">Calcular</button>
+                    </p>
+                </div>
+                <span style="padding-top: 4.5%; padding-right: 10px; font-size: larger;"> Resultado: </span>
+                <span id ="resultado"></span>
+                
+            </div>
+            <br><br>
+        </section>
+
+        <footer>
+            Images by <a style="color: gray; padding-right: 1%;" href="https://freepik.com/">Freepik</a>
+            <a style="color: gray; padding-right: 0.5%;" href="https://www.freepik.com/free-photo/top-view-calculator-notebook-frame_18493874.htm#query=calculator%20background&position=11&from_view=keyword&track=ais">Image 1</a>
+            <a style="color: gray; padding-right: 0.5%;" href="https://br.freepik.com/vetores-gratis/conjunto-de-banners-de-homem-saudavel-e-insalubre_4270077.htm#query=weight%20scales%20cartoon&position=42&from_view=search&track=ais">Image 2</a>
+            <a style="color: gray; padding-right: 0.5%;" href="https://br.freepik.com/vetores-gratis/grafico-de-informacoes-do-indice-de-massa-corporal-do-homem_17191690.htm#query=body%20mass%20index&position=0&from_view=search&track=ais#position=0&query=body%20mass%20index">Image 3</a>
+        </footer>
+    </main>
+
+    <script>
+        function Calcular()
+        {
+            var peso = parseFloat(document.getElementById('peso').value);
+            var altura = parseFloat(document.getElementById('altura').value);
+            var imc = (peso / (altura * altura));
+            imc = Math.round(imc * 10) / 10;
+
+            console.log(peso);
+            console.log(altura);
+            console.log(imc);
+
+            document.getElementById("resultado").innerHTML = imc
+            
+            if(imc < 18.5)
+            {
+                document.getElementById("resultado-frase").innerHTML = "Cuidado! Você pode estar abaixo do peso";
+            }
+            else if(imc >= 18.5 && imc < 30)
+            {
+                document.getElementById("resultado-frase").innerHTML = "Bom trabalho! O seu peso está normal";
+            }
+            else
+            {
+                document.getElementById("resultado-frase").innerHTML = "Cuidado! Você pode estar acima do peso";
+            }
+        }
+    </script>
+</body>
+
+</html>
